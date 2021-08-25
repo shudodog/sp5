@@ -63,7 +63,7 @@ DispatcherServlet은 컨트롤러의 실행결과를 HandlerAdapter를 통해서
 
 이 경우 DispatcherServlet은 View객체에 응답 생성을 요청할 때 greeting 키를 갖는 Map 객체를 View 객체에 전달한다. View 객체는 전달받은 Map 객체에 담긴 값을 이용해 알맞은 응답 결과를 출력한다. InternalResourceView는 Map객체에 담겨 있는 키 값을 request.setAttribute()를 이용해서 request의 속성에 저장한다. 그 뒤 해당 경로의 JSP를 실핸한다.
 
-결과적으로 컨트롤러에서 지정한 Model 속성은 request 객체 속성으로 JSP에 전달되기 때문에 JSP느 ㄴ다음과 같이 모델에 지정한 속성 이름을 사용해서 값을 사용할 수 있다.
+결과적으로 컨트롤러에서 지정한 Model 속성은 request 객체 속성으로 JSP에 전달되기 때문에 JSP는 다음과 같이 모델에 지정한 속성 이름을 사용해서 값을 사용할 수 있다.
 
 ![image](https://user-images.githubusercontent.com/76150392/130775326-d19789c1-5cf2-41b9-8689-2d0dbb7934f1.png)
 
