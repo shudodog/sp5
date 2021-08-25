@@ -8,6 +8,9 @@
 그리고 가장 어려웠던 부분은 Chapter7 AOP 프로그래밍 이었다. 처음 읽었을 때 잘 이해가 가지 않아 먼저 다음으로 넘어간 후 책을 2번째 읽을 때 더욱 꼼꼼히 봤던 부분이다.
 
 ****Chapter7 AOP 프로그래밍****
+
+![image](https://user-images.githubusercontent.com/76150392/130768990-53d8be27-d04c-43f2-a846-4bab1f92d7a2.png)
+
 프록시는 핵심 기능은 구현하지 않고 대신 여러 객체에 공통으로 적용할 수 있는 기능을 구현한다.
 AOP(Aspect Oriented Programming)의 핵심은 공통 기능 구현과 핵심 기능 구현을 분리하는 것이다. AOP는 핵심기능을 구현한 코드의 수정 없이 공통 기능을 적용 할 수 있게 만들어준다.
 기본 개념은 핵심 기능에 공통 기능을 삽입하는 것이다. 스프링에서는 런타임에 프록시 객체를 생성해서 공통 기능을 삽입하는 방법을 사용하고 있다.
@@ -17,9 +20,12 @@ AOP(Aspect Oriented Programming)의 핵심은 공통 기능 구현과 핵심 기
   @Pointcut 어노테이션으로 공통 긴으을 적용할 Pointcut정의
   공통 기능을 구현한 매서드에 @Around 어노테이션을 적용한다.
 
-![image](https://user-images.githubusercontent.com/76150392/130768990-53d8be27-d04c-43f2-a846-4bab1f92d7a2.png)
+
 
 ****Chapter10****
+
+![image](https://user-images.githubusercontent.com/76150392/130778016-39d2c947-b0a2-4510-9956-10123c2ba516.png)
+
 
 1.DispatcherServlet은 모든 연결을 담당한다. 웹 브라우저로부터 요청이 들어오면 DispatcherServlet은 그 요청을 처리하기 위한 컨트롤러 객체를 검색한다.
 
