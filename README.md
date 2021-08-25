@@ -19,13 +19,19 @@ AOP(Aspect Oriented Programming)의 핵심은 공통 기능 구현과 핵심 기
 ![image](https://user-images.githubusercontent.com/76150392/130768990-53d8be27-d04c-43f2-a846-4bab1f92d7a2.png)
 
 ****Chapter10****
-1. DispatcherServlet은 모든 연결을 담당한다. 웹 브라우저로부터 요청이 들어오면 DispatcherServlet은 그 요청을 처리하기 위한 컨트롤러 객체를 검색한다. 
-2. 이때 DispatcherServlet은 직접 컨트롤러를 검색하지 않고 HandlerMapping이라는 빈 객체에게 컨트롤러 검색을 요청한다. HandlerMapping은 클라이언트의 요청 경로를 이용해서 이를 처리할 컨트롤러 빈 객체를 DispatcherServlet에 전달한다. 예를 들어 웹 요청 경로가 '/hello'라면 등록된 컨트롤러 빈 중에서 '/hello'요청 경로를 처리할 컨트롤러를 리턴한다.
-3. DispatcherServlet은 @Controller, Contoller 인터페이스, HttpRequestHAndler 인터페이스를 구현한 클래스를 동일한 방식으로 처리하기 위해 HandlerMapping이 찾아준 컨트롤러 객처를 처리할 수 있는 HandlerAdapter빈에게 요청 처리를 위임한다.
-4-5. HandlerAdapter는 컨트롤러의 알맞은 메서드를 호출해서 요청을 처리한다.
-6. 그 결과를 DispatcherServlet에 리턴한다.
-7. HandlerAdapter로부터 ModelAndView로 요청 처리 결과를 받고 DispatcherServlet은 결과를 보여줄 뷰를 찾기 위해 ViewResolver빈 객체를 사용한다. ModelAndView가 컨트롤러가 리턴한 뷰 이름을 가지고 있는데 ViewResolver는 View객체를 찾거나 생성해서 리던한다. 응답을 생성하기 위해 JSP를 사용하는 VIewResolver는 매번 새로운 View 객체를 생성해서 DispatherServlet에 리턴한다. 
-8. DispatcherServlet은 ViewResolver가 리턴한 View객체에게 응답 결과 생성을 요청한다.
+1.DispatcherServlet은 모든 연결을 담당한다. 웹 브라우저로부터 요청이 들어오면 DispatcherServlet은 그 요청을 처리하기 위한 컨트롤러 객체를 검색한다.
+
+2.이때 DispatcherServlet은 직접 컨트롤러를 검색하지 않고 HandlerMapping이라는 빈 객체에게 컨트롤러 검색을 요청한다. HandlerMapping은 클라이언트의 요청 경로를 이용해서 이를 처리할 컨트롤러 빈 객체를 DispatcherServlet에 전달한다. 예를 들어 웹 요청 경로가 '/hello'라면 등록된 컨트롤러 빈 중에서 '/hello'요청 경로를 처리할 컨트롤러를 리턴한다.
+
+3.DispatcherServlet은 @Controller, Contoller 인터페이스, HttpRequestHAndler 인터페이스를 구현한 클래스를 동일한 방식으로 처리하기 위해 HandlerMapping이 찾아준 컨트롤러 객처를 처리할 수 있는 HandlerAdapter빈에게 요청 처리를 위임한다.
+
+4-5.HandlerAdapter는 컨트롤러의 알맞은 메서드를 호출해서 요청을 처리한다.
+
+6.그 결과를 DispatcherServlet에 리턴한다.
+
+7.HandlerAdapter로부터 ModelAndView로 요청 처리 결과를 받고 DispatcherServlet은 결과를 보여줄 뷰를 찾기 위해 ViewResolver빈 객체를 사용한다. ModelAndView가 컨트롤러가 리턴한 뷰 이름을 가지고 있는데 ViewResolver는 View객체를 찾거나 생성해서 리던한다. 응답을 생성하기 위해 JSP를 사용하는 VIewResolver는 매번 새로운 View 객체를 생성해서 DispatherServlet에 리턴한다.
+
+8.DispatcherServlet은 ViewResolver가 리턴한 View객체에게 응답 결과 생성을 요청한다.
 
 @Controller를 위한 HandlerMapping과 HandlerAdapter
 클라이언트의 요청을 실제로 처리하는 것은 컨트롤러이고 DispatcherServlet은 클라이언트의 요청을 전달받는 창구 역할을 한다. DispatcherSErvlet은 클라이언트의 요청을 처리할 컨트롤러를 찾기 위해 HandlerMapping을 사용하는데, @Controller 애노테이션을 붙인 클래스를 이용할 수 도 있지만, 자신이 직접 만든 클래스를 이용해 클라이언트의 요청을 처리할 수도 있다.
