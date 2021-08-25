@@ -27,7 +27,6 @@ AOP(Aspect Oriented Programming)의 핵심은 공통 기능 구현과 핵심 기
 
 ![image](https://user-images.githubusercontent.com/76150392/130778016-39d2c947-b0a2-4510-9956-10123c2ba516.png)
 
-
 1.DispatcherServlet은 모든 연결을 담당한다. 웹 브라우저로부터 요청이 들어오면 DispatcherServlet은 그 요청을 처리하기 위한 컨트롤러 객체를 검색한다.
 
 2.이때 DispatcherServlet은 직접 컨트롤러를 검색하지 않고 HandlerMapping이라는 빈 객체에게 컨트롤러 검색을 요청한다. HandlerMapping은 클라이언트의 요청 경로를 이용해서 이를 처리할 컨트롤러 빈 객체를 DispatcherServlet에 전달한다. 예를 들어 웹 요청 경로가 '/hello'라면 등록된 컨트롤러 빈 중에서 '/hello'요청 경로를 처리할 컨트롤러를 리턴한다.
